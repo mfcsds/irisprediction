@@ -19,7 +19,13 @@ def prediction_newdata(newData):
 
     # Membuat prediksi menggunakan model yang telah dilatih
     predictions = loaded_model.predict(new_data_scaled)
-
+    result = ""
+    if predictions[0] == 0:
+        result = 'Setosa'
+    elif predictions[0] == 1:
+        result = 'Versicolor'
+    else:
+        result = 'Virginica'
     # Mencetak prediksi
     # Di dataset Iris: 0 adalah Iris Setosa, 1 adalah Iris Versicolor, 2 adalah Iris Virginica
-    return predictions
+    return result
